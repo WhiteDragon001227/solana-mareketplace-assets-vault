@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AnyoneMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "honest_work"
+      ],
+      "properties": {
+        "honest_work": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "rebalance"
+      ],
+      "properties": {
+        "rebalance": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "claim_remainder"
+      ],
+      "properties": {
+        "claim_remainder": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "accept_governance"
+      ],
+      "properties": {
+        "accept_governance": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

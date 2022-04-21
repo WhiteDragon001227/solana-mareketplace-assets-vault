@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "YourselfMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "swap_anc"
+      ],
+      "properties": {
+        "swap_anc": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "disribute_rewards"
+      ],
+      "properties": {
+        "disribute_rewards": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

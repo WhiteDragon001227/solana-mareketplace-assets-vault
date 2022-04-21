@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "a_custody_basset_addr",
+    "a_market_addr",
+    "a_overseer_addr",
+    "anc_stable_swap_addr",
+    "anchor_addr",
+    "aterra_addr",
+    "basset_addr",
+    "basset_vs_addr",
+    "claiming_rewards_delay",
+    "collateral_ts",
+    "community_addr",
+    "fee_rate",
+    "gov_addr",
+    "manual_ltv",
+    "nasset_t_ch_ci",
+    "nasset_t_ci",
+    "nasset_t_r_ci",
+    "over_loan_balance_value",
+    "psi_addr",
+    "psi_distr_ci",
+    "psi_stable_swap_addr",
+    "stable_denom",
+    "tax_rate",
+    "ts_factory_addr"
+  ],
+  "properties": {
+    "a_custody_basset_addr": {
+      "type": "string"
+    },
+    "a_market_addr": {
+      "type": "string"
+    },
+    "a_overseer_addr": {
+      "type": "string"
+    },
+    "anc_stable_swap_addr": {
+      "type": "string"
+    },
+    "anchor_addr": {
+      "type": "string"
+    },
+    "aterra_addr": {
+      "type": "string"
+    },
+    "basset_addr": {
+      "type": "string"
+    },
+    "basset_vs_addr": {
+      "type": "string"
+    },
+    "claiming_rewards_delay": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "collateral_ts": {
+      "type": "string"
+    },
+    "community_addr": {
+      "type": "string"
+    },
+    "fee_rate": {
+      "description": "fees, need to calc how much send to governance and community pools",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Decimal256"
+        }
+      ]
+    },
+    "gov_addr": {
+      "type": "string"
+    },
+    "manual_ltv": {
+      "description": "mean ltv that user manage by himself (advise: 60%)",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Decimal256"
+        }
+      ]
+    },
+    "nasset_t_ch_ci": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "nasset_t_ci": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "nasset_t_r_ci": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "over_loan_balance_value": {
+      "description": "UST value in balance should be more than loan on what portion. for example: 1.01 means 1% more than loan",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Decimal256"
+        }
+      ]
+    },
+    "psi_addr": {
+      "type": "string"
+    },
+    "psi_distr_ci": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "psi_stable_swap_addr": {
+      "type": "string"
+    },
+    "stable_denom": {
+      "type": "string"
+    },
+    "tax_rate": {
+      "$ref": "#/definitions/Decimal256"
+    },
+    "ts_factory_addr": {
+      "description": "terraswap_factory_contract_addr",
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "Decimal256": {
+      "description": "A fixed-point decimal value with 18 fractional digits, i.e. Decimal256(1_000_000_000_000_000_000) == 1.0 The greatest possible value that can be represented is 115792089237316195423570985008687907853269984665640564039457.584007913129639935 (which is (2^128 - 1) / 10^18)",
+      "type": "string"
+    }
+  }
+}

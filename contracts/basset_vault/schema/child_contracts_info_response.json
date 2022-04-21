@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChildContractsInfoResponse",
+  "type": "object",
+  "required": [
+    "collateral_token_symbol",
+    "community_pool_contract_addr",
+    "fee_rate",
+    "manual_ltv",
+    "nasset_token_code_id",
+    "nasset_token_rewards_code_id",
+    "psi_distributor_code_id",
+    "tax_rate"
+  ],
+  "properties": {
+    "collateral_token_symbol": {
+      "type": "string"
+    },
+    "community_pool_contract_addr": {
+      "type": "string"
+    },
+    "fee_rate": {
+      "$ref": "#/definitions/Decimal256"
+    },
+    "manual_ltv": {
+      "$ref": "#/definitions/Decimal256"
+    },
+    "nasset_token_code_id": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "nasset_token_rewards_code_id": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "psi_distributor_code_id": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "tax_rate": {
+      "$ref": "#/definitions/Decimal256"
+    }
+  },
+  "definitions": {
+    "Decimal256": {
+      "description": "A fixed-point decimal value with 18 fractional digits, i.e. Decimal256(1_000_000_000_000_000_000) == 1.0 The greatest possible value that can be represented is 115792089237316195423570985008687907853269984665640564039457.584007913129639935 (which is (2^128 - 1) / 10^18)",
+      "type": "string"
+    }
+  }
+}

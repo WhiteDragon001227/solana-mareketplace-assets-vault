@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "anyone"
+      ],
+      "properties": {
+        "anyone": {
+          "type": "object",
+          "required": [
+            "anyone_msg"
+          ],
+          "properties": {
+            "anyone_msg": {
+              "$ref": "#/definitions/AnyoneMsg"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "governance"
+      ],
+      "properties": {
+        "governance": {
+          "type": "object",
+          "required": [
+            "governance_msg"
+          ],
+          "properties": {
+            "governance_msg": {
+              "$ref": "#/definitions/GovernanceMsg"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "AnyoneMsg": {
+      "anyOf": [
+        {
+          "description": "Anyone can set rewards_token_addr for the first time",
+          "type": "object",
+          "required": [
+            "set_token_rewards_contract"
+          ],
+          "properties": {
+            "set_token_rewards_contract": {
+              "type": "object",
+              "required": [
+                "nasset_token_rewards_contract_addr"
+              ],
+              "properties": {
+                "nasset_token_rewards_contract_addr": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "accept_governance"
+          ],
+          "properties": {
+            "accept_governance": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GovernanceMsg": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "update_config"
+          ],
+          "properties": {
+            "update_config": {
+              "type": "object",
+              "properties": {
+                "nasset_token_rewards_contract_addr": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "update_governance_contract"
+          ],
+          "properties": {
+            "update_governance_contract": {
+              "type": "object",
+              "required": [
+                "gov_addr",
+                "seconds_to_wait_for_accept_gov_tx"
+              ],
+              "properties": {
+                "gov_addr": {
+                  "type": "string"
+                },
+                "seconds_to_wait_for_accept_gov_tx": {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
